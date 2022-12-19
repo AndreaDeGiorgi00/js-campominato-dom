@@ -35,6 +35,17 @@ main {
   align-items: center;
 }
 
+select { 
+  padding: 5px 10px;
+}
+
+.container{
+  text-align: center;
+}
+#textTarget{
+  width: 100%;
+  height: 35px;
+}
 /* # Logo */
 
 .logo {
@@ -98,4 +109,15 @@ main {
 #grid .cell.clicked.red {
   background-color: red;
 
+}
+
+#grid.hard .cell {
+  width : calc(100%/7);
+  height : calc(100% / 7);
+  
+}
+#grid.medium .cell {
+  width:calc(100% / 9);
+  height:calc(100% / 9);
+  
 }

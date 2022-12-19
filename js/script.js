@@ -42,7 +42,7 @@ Se avete finito tutti i bonus potete scrivere all'insegnante o ai tutor per rice
 // Recupero gli elementi in pagina
 const grid = document.getElementById('grid');
 const playButton = document.getElementById('play-button');
-
+const testo = document.getElementById('textTarget')
 
 function play() {
 
@@ -52,6 +52,7 @@ function play() {
     cell.classList.add('cell');
     cell.append(number);
 
+    
     return cell;
   }
 
@@ -70,9 +71,21 @@ function play() {
   let conteggioCliccati = [];
   let punteggio = 0;
   //creo la array di bombe
-  const bombe = randomNumber(100);
+  const bombe = randomNumber(difficoltàSelected());
   console.log(bombe);
-  for (let i = 1; i <= 100; i++) {
+  //do a grid la classe per la difficoltà
+  grid.className = ""
+  //rimuovo da grid tutte le classi
+
+  if(difficoltàSelected()==4){
+    
+    grid.classList.add("hard")
+  }else if(difficoltàSelected()==81){
+    
+    grid.classList.add("medium")
+  }
+
+  for (let i = 1; i <= difficoltàSelected(); i++) {
 
     const cell = createCell(i);
     console.log()
@@ -86,12 +99,19 @@ function play() {
         //se il bottone cliccato ha come valore un numero presente nelle bombe allora diventa rosso
         if(bombe.includes(i)){
           cell.classList.add('red');
-          window.alert( `hai perso e hai totalizzato: ${punteggio} punti`) ;
+          testo.innerHTML = "";
+          message = "hai perso e hai totalizzato 1 punto";
+          if(punteggio != 1){
+            testo.innerHTML = `<h1>hai perso e hai totalizzato:${punteggio} punti</h1>`;
+            
+          }else{
+            testo.innerHTML = message;
+          }
         }else{
           conteggioCliccati.push(i);
           punteggio++;
           console.log(punteggio);
-          if(punteggio== 100 - 16){
+          if(punteggio== difficoltàSelected() - 16){
             grid.innerHTML = "";
             grid.innerHTML = "<h1>hai vinto!</h1>"
           }
@@ -141,3 +161,24 @@ function randomNumber (max){
   return contatore;
 }
 
+
+// ! livelli di difficolta----------
+
+//creo una funzione che mi seleziona il livello di difficoltà
+//e mi restituisce il numero di colonne totale
+
+function difficoltàSelected (){
+  //creo la variabile caselle totali già selezionata su 100 caselle la modalità facile
+  let caselleTotali = 100;
+  //seleziono la scelta 
+  const scelta = document.getElementById("difficoltà").value;
+  if (scelta == "medium"){
+    caselleTotali = 81;
+  }else if (scelta == "hard"){
+    caselleTotali = 49;
+  }
+  
+  console.log(caselleTotali)
+  
+  return caselleTotali;
+}
