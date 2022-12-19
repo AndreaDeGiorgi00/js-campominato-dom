@@ -51,16 +51,17 @@ function play() {
     const cell = document.createElement('div');
     cell.classList.add('cell');
     cell.append(number);
-
+    
     
     return cell;
   }
-
+  
   // Cambiamo il testo del bottone in "Ricomincia"
   playButton.innerText = 'Ricomincia';
-
+  
   // Svuotiamo la griglia
   grid.innerHTML = '';
+  testo.innerHTML = "";
 
 
   // ! -------------------------------
