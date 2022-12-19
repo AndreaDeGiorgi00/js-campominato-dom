@@ -77,7 +77,7 @@ function play() {
   grid.className = ""
   //rimuovo da grid tutte le classi
 
-  if(difficoltàSelected()==4){
+  if(difficoltàSelected()==49){
     
     grid.classList.add("hard")
   }else if(difficoltàSelected()==81){
