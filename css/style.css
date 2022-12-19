@@ -1,0 +1,101 @@
+/* CSS Properties */
+
+:root {
+  --aquagreen: #7fffd4;
+}
+
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Generics  */
+
+body {
+  background-color: var(--aquagreen);
+}
+
+header {
+  height: 10vh;
+  padding: 15px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* # Logo */
+
+.logo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* # Controls */
+
+#play-button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: white;
+  border: 1px solid dodgerblue;
+  background-color: dodgerblue;
+  cursor: pointer;
+}
+
+#select-level {
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+/* # Grid */
+
+#grid {
+  margin: 20px auto;
+  height: 80vh;
+  width: 80vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#grid .cell {
+  width: 10%;
+  height: 10%;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#grid .cell.clicked {
+  color: white;
+  background-color: dodgerblue;
+  cursor: not-allowed;
+
+}
+
+#grid .cell.clicked.red {
+  background-color: red;
+
+}
