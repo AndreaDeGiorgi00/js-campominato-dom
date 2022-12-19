@@ -75,6 +75,7 @@ function play() {
   for (let i = 1; i <= 100; i++) {
 
     const cell = createCell(i);
+    console.log()
 
     cell.addEventListener('click', function () {
       cell.classList.add('clicked');
@@ -90,6 +91,10 @@ function play() {
           conteggioCliccati.push(i);
           punteggio++;
           console.log(punteggio);
+          if(punteggio== 100 - 16){
+            grid.innerHTML = "";
+            grid.innerHTML = "<h1>hai vinto!</h1>"
+          }
           
         }
         
@@ -132,6 +137,7 @@ function randomNumber (max){
     };
     
   }
+  console.log(contatore)
   return contatore;
 }
 
